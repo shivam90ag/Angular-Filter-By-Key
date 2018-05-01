@@ -1,0 +1,41 @@
+<div>
+  <div class="heading">
+    <h1>List of Students</h1>
+  </div>
+  <table class="table-layout">
+    <thead>
+      <th class="width-20">Roll No.</th>
+      <th class="width-20">Name</th>
+      <th class="width-20">Class</th>
+      <th class="width-20">Email</th>
+      <th class="width-20">Date of birth</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="width-20">
+          <input placeholder="Search by Roll No." [(ngModel)]="rollNoSearchText">
+        </td>
+        <td class="width-20">
+          <input placeholder="Search by Name" [(ngModel)]="nameSearchText">
+        </td>
+        <td class="width-20">
+          <input placeholder="Search by Class" [(ngModel)]="classSearchText">
+        </td>
+        <td class="width-20">
+          <input placeholder="Search by Email" [(ngModel)]="emailSearchText">
+        </td>
+        <td class="width-20">
+          <input placeholder="Search by dob" [(ngModel)]="dobSearchText">
+        </td>
+      </tr>
+      <tr *ngFor="let student of records | search: 'roll_no': rollNoSearchText : 'name': nameSearchText : 'class' : classSearchText :
+      'email': emailSearchText : 'dob': dobSearchText" style="text-align:center">
+        <td class="width-20">{{student.roll_no || '-'}}</td>
+        <td class="width-20">{{student.name || '-'}}</td>
+        <td class="width-20">{{student.class || '-'}}</td>
+        <td class="width-20">{{student.email || '-'}}</td>
+        <td class="width-20">{{student.dob || '-'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
